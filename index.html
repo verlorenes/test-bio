@@ -291,6 +291,8 @@
     const bioCard = document.getElementById('bioCard');
     const clickOverlay = document.getElementById('clickOverlay');
 
+    music.volume = 0.5;
+
     function toggleMute() {
         const icon = muteBtn.querySelector("i");
         muteBtn.classList.add("rotating");
@@ -300,11 +302,10 @@
                 icon.classList.remove("fa-volume-mute");
                 icon.classList.add("fa-volume-up");
                 music.play().catch(err => console.log("Autoplay bloqué:", err));
-                music.muted = false;
             } else {
                 icon.classList.remove("fa-volume-up");
                 icon.classList.add("fa-volume-mute");
-                music.muted = true;
+                music.pause();
             }
             isMuted = !isMuted;
         }, 200);
